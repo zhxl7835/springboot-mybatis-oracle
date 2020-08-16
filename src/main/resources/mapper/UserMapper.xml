@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhxl.springboot.mapper.UserMapper">
+
+    <select id="findAll" resultType="com.zhxl.springboot.entity.User">
+        select * from "TB_USERS"
+    </select>
+
+    <select id="getUserByUsername" resultType="com.zhxl.springboot.entity.User">
+        select * from "TB_USERS" where username = #{username}
+    </select>
+
+    <insert id="insertUser" parameterType="com.zhxl.springboot.entity.User">
+        INSERT INTO "TB_USERS"(USERNAME,PASSWORD) VALUES (#{username},#{password})
+    </insert>
+
+    <update id="updateUser" parameterType="com.zhxl.springboot.entity.User">
+        UPDATE "TB_USERS" SET USERNAME=#{username},PASSWORD=#{password} WHERE USERNAME=#{username}
+    </update>
+
+    <delete id="deleteUser" parameterType="com.zhxl.springboot.entity.User">
+        delete from "TB_USERS" WHERE USERNAME=#{username} and PASSWORD=#{password}
+    </delete>
+
+</mapper>
