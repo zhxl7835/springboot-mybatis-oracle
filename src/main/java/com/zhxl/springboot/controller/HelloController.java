@@ -41,7 +41,7 @@ public class HelloController {
 
     @RequestMapping("/insertUser")
     public String users3(User user) throws Exception{
-        user.setPassword("1561654842");
+        user.setPassword("11654842");
         user.setUsername("zhxl");
         userService.insertUser(user);
         System.out.println(user);
